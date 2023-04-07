@@ -14,10 +14,5 @@ namespace assignment2._3
         public string Institute { get; set; }
         public Service PrefferedService;
 
-        public Teacher()
-        {
-            PrefferedService = new Service();
-        }
-
     }
 }
