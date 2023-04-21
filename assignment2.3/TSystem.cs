@@ -22,6 +22,15 @@ namespace assignment2._3
             return TopServices;
         }
 
+        public void AddTeacher(Teacher newTeacher)
+        {
+            IsCanAddTeacher isCanAddTeacher = (name) => Teachers.Find((t) => t.Fio.Equals(name)) == null;
+
+            if (isCanAddTeacher(newTeacher.Fio))
+            {
+                Teachers.Add(newTeacher);
+            }
+        }
 
     }
 }
