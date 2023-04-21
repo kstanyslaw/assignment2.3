@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace assignment2._3
 {
-    internal class System
+    internal class TopServices
     {
+        public Service service { get; set; }
+        public int CountOfUsing { get; set; }
     }
 }
