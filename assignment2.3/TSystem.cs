@@ -14,7 +14,7 @@ namespace assignment2._3
         {
             List<TopServices> TopServices = Teachers
                 .GroupBy(t => t.PrefferedService)
-                .Select(g => new TopServices { service = g.Key, CountOfUsing = g.Count() })
+                .Select(g => new TopServices() { service = g.Key, CountOfUsing = g.Count() }) 
                 .OrderByDescending(g => g.CountOfUsing)
                 .Take(3)
                 .ToList();
@@ -30,6 +30,22 @@ namespace assignment2._3
             {
                 Teachers.Add(newTeacher);
             }
+        }
+
+        public string PrintTeachers()
+        {
+            string result = "";
+            foreach (Teacher teacher in Teachers)
+            {
+                result += teacher.Fio +
+                    " " +
+                    teacher.Institute +
+                    teacher.PrefferedService.TextColor +
+                    teacher.PrefferedService.ServiceName +
+                    Colors.NORMAL +
+                    "\n";
+            }
+            return result;
         }
 
     }

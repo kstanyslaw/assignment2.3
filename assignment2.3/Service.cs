@@ -9,6 +9,6 @@ namespace assignment2._3
     internal class Service
     {
         public string ServiceName { get; set; }
-        public int TextColor;
+        public string TextColor;
     }
 }
