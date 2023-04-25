@@ -40,8 +40,22 @@ namespace assignment2._3
                 result += teacher.Fio +
                     " " +
                     teacher.Institute +
+                    " " +
                     teacher.PrefferedService.TextColor +
                     teacher.PrefferedService.ServiceName +
+                    Colors.NORMAL +
+                    "\n";
+            }
+            return result;
+        }
+
+        public string PrintTopServices()
+        {
+            string result = "";
+            foreach (Service service in TopServices)
+            {
+                result += service.TextColor +
+                    service.ServiceName +
                     Colors.NORMAL +
                     "\n";
             }
