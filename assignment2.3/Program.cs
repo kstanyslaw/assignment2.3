@@ -11,9 +11,60 @@ namespace assignment2._3
 
         public static void Main(string[] args)
         {
-            string YELLOW = Console.IsOutputRedirected ? "" : "\x1b[93m";
-            string text = "jopa " + Colors.YELLOW + "gavno";
-            Console.WriteLine(text);
+            TSystem tsystem = new TSystem();
+            tsystem.Teachers.Add(new Teacher(){ 
+                LastName = "Kositsyn",
+                FirstName = "Stanislav",
+                MiddleName = "Yurievich",
+                Institute = "ISIT",
+                PrefferedService = new Service()
+                {
+                    ServiceName = "Skype",
+                    TextColor = Colors.BLUE,
+                }    
+            });
+            tsystem.Teachers.Add(new Teacher()
+            {
+                LastName = "Ivanov",
+                FirstName = "Ivan",
+                MiddleName = "Ivanovich",
+                Institute = "IOG",
+                PrefferedService = new Service()
+                {
+                    ServiceName = "Discord",
+                    TextColor = Colors.MAGENTA,
+                }
+            });
+            tsystem.Teachers.Add(new Teacher()
+            {
+                LastName = "Kirkorov",
+                FirstName = "Filip",
+                MiddleName = "Bedrosovich",
+                Institute = "HI",
+                PrefferedService = new Service()
+                {
+                    ServiceName = "Skype",
+                    TextColor = Colors.BLUE,
+                }
+            });
+            tsystem.Teachers.Add(new Teacher()
+            {
+                LastName = "Petrov",
+                FirstName = "Petr",
+                MiddleName = "Petrovich",
+                Institute = "IG",
+                PrefferedService = new Service()
+                {
+                    ServiceName = "SberJazz",
+                    TextColor = Colors.GREEN,
+                }
+            });
+
+            Console.WriteLine(tsystem.PrintTeachers());
+
+            tsystem.GetTopServices();
+
+            Console.WriteLine(tsystem.PrintTopServices());
         }
     }
 }
