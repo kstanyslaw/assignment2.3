@@ -13,8 +13,11 @@ namespace assignment2._3
         public List<TopServices>  GetTopServices()
         {
             List<TopServices> TopServices = Teachers
-                .GroupBy(t => t.PrefferedService.ServiceName)
-                .Select(g => new TopServices() { ServiceName = g.Key, CountOfUsing = g.Count() }) // to do select service
+                .GroupBy(
+                    t => t.PrefferedService.ServiceName,
+                    (name, t) => new {Key = from n in t select n.PrefferedService, Count = t.Count()}
+                 )
+                .Select(g => new TopServices() { service = g.Key, CountOfUsing = g.Count }) // to do select service
                 .OrderByDescending(g => g.CountOfUsing)
                 .Take(3)
                 .ToList();
